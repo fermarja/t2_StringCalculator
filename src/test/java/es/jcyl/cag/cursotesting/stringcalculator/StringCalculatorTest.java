@@ -76,6 +76,16 @@ public class StringCalculatorTest {
 		Assert.assertEquals(6, add("//[***]\n1***2***3"));
 	}
 	
+	@Test
+	public void testSeparadoresMultiples() {
+		Assert.assertEquals(6, add("//[*][%]\\n1*2%3"));
+	}
+	
+	@Test
+	public void testSeparadoresMultipesMultiplesCaracteres() {
+		Assert.assertEquals(6, add("//[*****][%%%]\\n1*****2%%%3"));
+	}
+	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
 	}
