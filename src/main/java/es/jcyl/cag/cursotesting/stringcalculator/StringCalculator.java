@@ -40,18 +40,25 @@ public class StringCalculator {
 		}
 		String[] numeros = StringUtils.split(parteDeNumeros, separadores);		
 		int[] resultado = new int[numeros.length];
-		List<Integer> negativos = new ArrayList<Integer>();
+		
 		for(int i = 0; i < numeros.length; i++) {
 			resultado[i] = Integer.parseInt(numeros[i]);
-			if (resultado[i] < 0) {
-				negativos.add(resultado[i]);
+		}
+		comprobarPresenciaNegativos(resultado);
+		
+		return resultado;
+	}
+	
+	private void comprobarPresenciaNegativos(int[] numeros) {
+		List<Integer> negativos = new ArrayList<Integer>();
+		for(int i = 0; i < numeros.length; i++) {
+			if (numeros[i] < 0) {
+				negativos.add(numeros[i]);
 			}
 		}
 		if (!negativos.isEmpty()) {
 			throw new IllegalArgumentException("negativos no soportados: " + negativos);
 		}
-		
-		return resultado;
 	}
 
 }
