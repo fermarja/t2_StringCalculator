@@ -22,6 +22,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(0, add("   "));
 	}
 	
+	@Test
+	public void testSumaUnNumero() {
+		Assert.assertEquals(2, "2");
+	}
+	
 	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
