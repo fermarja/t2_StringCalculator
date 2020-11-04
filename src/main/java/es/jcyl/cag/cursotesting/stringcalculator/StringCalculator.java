@@ -31,20 +31,32 @@ public class StringCalculator {
 	}
 
 	private int[] extraerNumeros(String numbers) {
-		String separadores = ",\n";
+		String[] separadores = new String[]{",", "\n"};
 		String parteDeNumeros = numbers;
-		if (numbers.startsWith("//")) {
-			separadores = numbers.substring(2, numbers.indexOf('\n'));
-			if (StringUtils.isBlank(separadores)) {
-				separadores = ";";
+		if (numbers.startsWith("//[")) {
+			separadores = new String[] {numbers.substring(3, numbers.indexOf('\n')-1)};
+			parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
+		}
+		else if (numbers.startsWith("//")) {
+			String separadoresTmp = numbers.substring(2, numbers.indexOf('\n'));
+			if (StringUtils.isBlank(separadoresTmp)) {
+				separadores = new String[] {";"};
+			}
+			else {
+				separadores = new String[] {separadoresTmp};
 			}
 			parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
 		}
 		return extraerNumeros(parteDeNumeros, separadores);
 	}
 
-	private int[] extraerNumeros(String parteDeNumeros, String separadores) {
-		String[] numeros = StringUtils.split(parteDeNumeros, separadores);		
+	private int[] extraerNumeros(String parteDeNumeros, String[] separadores) {
+		String separadorDefecto = ",";
+		String tmp = parteDeNumeros;
+		for (String sep : separadores) {
+			tmp = StringUtils.replace(tmp, sep, separadorDefecto);
+		}
+		String[] numeros = StringUtils.split(tmp, separadorDefecto);		
 		int[] resultado = new int[numeros.length];
 		
 		for(int i = 0; i < numeros.length; i++) {
