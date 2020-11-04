@@ -12,17 +12,12 @@ public class StringCalculator {
 		if (StringUtils.isBlank(numbers)) {
 			return 0;
 		}
-		if (numbers.contains(",")) {
-			String[] numeros = numbers.split(",");
-			int suma = 0;
-			for (String numero: numeros) {
-				suma += Integer.parseInt(numero);
-			}
-			return suma;
+		String[] numeros = numbers.split(",");
+		int suma = 0;
+		for (String numero : numeros) {
+			suma += Integer.parseInt(numero);
 		}
-		else {
-			return Integer.parseInt(numbers);
-		}
+		return suma;
 	}
 
 }
