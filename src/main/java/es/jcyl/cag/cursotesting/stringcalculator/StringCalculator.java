@@ -23,7 +23,9 @@ public class StringCalculator {
 	private int sumar(int[] numeros) {
 		int suma = 0;
 		for (int numero : numeros) {
-			suma += numero;
+			if (numero <= 1000) {
+				suma += numero;
+			}
 		}
 		return suma;
 	}
