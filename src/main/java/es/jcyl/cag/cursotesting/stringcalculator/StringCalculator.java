@@ -34,7 +34,8 @@ public class StringCalculator {
 		String[] separadores = new String[]{",", "\n"};
 		String parteDeNumeros = numbers;
 		if (numbers.startsWith("//[")) {
-			separadores = new String[] {numbers.substring(3, numbers.indexOf('\n')-1)};
+			String tmp = numbers.substring(3, numbers.indexOf('\n')- 1);
+			separadores = StringUtils.splitByWholeSeparator(tmp, "][");
 			parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
 		}
 		else if (numbers.startsWith("//")) {
