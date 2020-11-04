@@ -1,5 +1,8 @@
 package es.jcyl.cag.cursotesting.stringcalculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 
 public class StringCalculator {
@@ -35,11 +38,19 @@ public class StringCalculator {
 			}
 			parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
 		}
-		String[] numeros = StringUtils.split(parteDeNumeros, separadores);
+		String[] numeros = StringUtils.split(parteDeNumeros, separadores);		
 		int[] resultado = new int[numeros.length];
+		List<Integer> negativos = new ArrayList<Integer>();
 		for(int i = 0; i < numeros.length; i++) {
 			resultado[i] = Integer.parseInt(numeros[i]);
+			if (resultado[i] < 0) {
+				negativos.add(resultado[i]);
+			}
 		}
+		if (!negativos.isEmpty()) {
+			throw new IllegalArgumentException("negativos no soportados: " + negativos);
+		}
+		
 		return resultado;
 	}
 
