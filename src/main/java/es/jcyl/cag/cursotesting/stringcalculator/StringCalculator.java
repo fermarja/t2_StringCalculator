@@ -26,7 +26,7 @@ public class StringCalculator {
 	}
 
 	private int[] extraerNumeros(String numbers) {
-		String[] numeros = numbers.split(",");
+		String[] numeros = StringUtils.split(numbers, ",\n");
 		int[] resultado = new int[numeros.length];
 		for(int i = 0; i < numeros.length; i++) {
 			resultado[i] = Integer.parseInt(numeros[i]);
