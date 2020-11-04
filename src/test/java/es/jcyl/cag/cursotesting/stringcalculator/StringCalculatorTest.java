@@ -71,6 +71,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(2, add("2,1002"));
 	}
 	
+	@Test
+	public void testSeparadorMultiplesCaracteres() {
+		Assert.assertEquals(6, add("//[***]\n1***2***3"));
+	}
+	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
 	}
