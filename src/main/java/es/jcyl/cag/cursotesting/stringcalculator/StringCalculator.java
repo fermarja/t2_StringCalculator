@@ -14,7 +14,11 @@ public class StringCalculator {
 		}
 		if (numbers.contains(",")) {
 			String[] numeros = numbers.split(",");
-			return Integer.parseInt(numeros[0]) + Integer.parseInt(numeros[1]);
+			int suma = 0;
+			for (String numero: numeros) {
+				suma += Integer.parseInt(numero);
+			}
+			return suma;
 		}
 		else {
 			return Integer.parseInt(numbers);
