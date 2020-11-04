@@ -37,6 +37,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(16, add("1,2,3,10"));
 	}
 	
+	@Test
+	public void testDelimitadorSaltoDeLinea() {
+		Assert.assertEquals(6,  add("1\\n2,3"));
+	}
+	
 	
 	
 	private int add(String numbers) {
