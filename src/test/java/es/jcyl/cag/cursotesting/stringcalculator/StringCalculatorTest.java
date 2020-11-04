@@ -65,6 +65,12 @@ public class StringCalculatorTest {
 		}
 	}
 	
+	
+	@Test
+	public void testIgnorarMayoresQueMil() {
+		Assert.assertEquals(2, add("2,1002"));
+	}
+	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
 	}
