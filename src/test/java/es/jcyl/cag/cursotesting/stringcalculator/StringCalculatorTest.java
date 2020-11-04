@@ -32,6 +32,12 @@ public class StringCalculatorTest {
 		Assert.assertEquals(5, add("3,2"));
 	}
 	
+	@Test
+	public void testSumaVariosNumeros() {
+		Assert.assertEquals(16, add("1,2,3,10"));
+	}
+	
+	
 	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
