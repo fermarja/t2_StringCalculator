@@ -38,10 +38,10 @@ public class StringCalculator {
 			}
 			parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
 		}
-		return extraeNumeros(parteDeNumeros, separadores);
+		return extraerNumeros(parteDeNumeros, separadores);
 	}
 
-	private int[] extraeNumeros(String parteDeNumeros, String separadores) {
+	private int[] extraerNumeros(String parteDeNumeros, String separadores) {
 		String[] numeros = StringUtils.split(parteDeNumeros, separadores);		
 		int[] resultado = new int[numeros.length];
 		
