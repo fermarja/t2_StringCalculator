@@ -30,6 +30,9 @@ public class StringCalculator {
 		String parteDeNumeros = numbers;
 		if (numbers.startsWith("//")) {
 			separadores = numbers.substring(2, numbers.indexOf('\n'));
+			if (StringUtils.isBlank(separadores)) {
+				separadores = ";";
+			}
 			parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
 		}
 		String[] numeros = StringUtils.split(parteDeNumeros, separadores);
