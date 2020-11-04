@@ -24,7 +24,7 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void testSumaUnNumero() {
-		Assert.assertEquals(2, "2");
+		Assert.assertEquals(2, add("2"));
 	}
 	
 	
