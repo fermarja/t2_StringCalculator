@@ -42,7 +42,10 @@ public class StringCalculatorTest {
 		Assert.assertEquals(6,  add("1\n2,3"));
 	}
 	
-	
+	@Test
+	public void testDelimitadorPersonalizado() {
+		Assert.assertEquals(3, add("//;\n1;2"));
+	}
 	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
