@@ -52,6 +52,19 @@ public class StringCalculatorTest {
 		Assert.assertEquals(3, add("//\n1;2"));
 	}
 	
+	@Test
+	public void testErrorNegativos() {
+		try {
+			add("1,-1,-5,10,-20");
+			Assert.fail("Debe lanzarse la excepcion");
+		}
+		catch (IllegalArgumentException e) {
+			String msg = e.getMessage();
+			Assert.assertTrue(msg.contains("negativos no soportados"));
+			Assert.assertTrue(msg.contains("-1, -5, -20"));
+		}
+	}
+	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
 	}
