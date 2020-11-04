@@ -39,7 +39,7 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void testDelimitadorSaltoDeLinea() {
-		Assert.assertEquals(6,  add("1\\n2,3"));
+		Assert.assertEquals(6,  add("1\n2,3"));
 	}
 	
 	
