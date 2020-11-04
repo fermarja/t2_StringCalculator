@@ -27,6 +27,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(2, add("2"));
 	}
 	
+	@Test
+	public void testSumaDosNumeros() {
+		Assert.assertEquals(5, add("3,2"));
+	}
+	
 	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
