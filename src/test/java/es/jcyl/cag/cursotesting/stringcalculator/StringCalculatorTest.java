@@ -47,6 +47,11 @@ public class StringCalculatorTest {
 		Assert.assertEquals(3, add("//;\n1;2"));
 	}
 	
+	@Test
+	public void testDelimitadorPersonalizadoPeroVacio() {
+		Assert.assertEquals(3, add("//\n1;2"));
+	}
+	
 	private int add(String numbers) {
 		return new StringCalculator().add(numbers);
 	}
