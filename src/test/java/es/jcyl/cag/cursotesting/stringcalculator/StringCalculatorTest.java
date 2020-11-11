@@ -10,50 +10,50 @@ public class StringCalculatorTest {
 	}
 	
 	@Test
-	public void testNull() {
+	public void devolverCeroSiElParametroEsNull() {
 		Assert.assertEquals(0, add(null));
 	}
 	@Test
-	public void testCadenaVacia() {
+	public void devolverCeroSiElParametroEsVacio() {
 		Assert.assertEquals(0, add(""));
 	}
 	@Test
-	public void testCadenaBlank() {
+	public void devolverCeroSiElParametroEsBlancos() {
 		Assert.assertEquals(0, add("   "));
 	}
 	
 	@Test
-	public void testSumaUnNumero() {
+	public void sumaDeUnUnicoNumeroEsElMismo() {
 		Assert.assertEquals(2, add("2"));
 	}
 	
 	@Test
-	public void testSumaDosNumeros() {
+	public void sumaDosNumeros() {
 		Assert.assertEquals(5, add("3,2"));
 	}
 	
 	@Test
-	public void testSumaVariosNumeros() {
+	public void sumaMasDeDosNumeros() {
 		Assert.assertEquals(16, add("1,2,3,10"));
 	}
 	
 	@Test
-	public void testDelimitadorSaltoDeLinea() {
+	public void delimitadorSaltoDeLinea() {
 		Assert.assertEquals(6,  add("1\n2,3"));
 	}
 	
 	@Test
-	public void testDelimitadorPersonalizado() {
+	public void delimitadorPersonalizado() {
 		Assert.assertEquals(3, add("//;\n1;2"));
 	}
 	
 	@Test
-	public void testDelimitadorPersonalizadoPeroVacio() {
+	public void delimitadorPersonalizadoPeroVacio() {
 		Assert.assertEquals(3, add("//\n1;2"));
 	}
 	
 	@Test
-	public void testErrorNegativos() {
+	public void noSePermitenNumerosNegativos() {
 		try {
 			add("1,-1,-5,10,-20");
 			Assert.fail("Debe lanzarse la excepcion");
@@ -67,22 +67,22 @@ public class StringCalculatorTest {
 	
 	
 	@Test
-	public void testIgnorarMayoresQueMil() {
+	public void noSePermitenNumerosMayoresDeMil() {
 		Assert.assertEquals(2, add("2,1002"));
 	}
 	
 	@Test
-	public void testSeparadorMultiplesCaracteres() {
+	public void separadorMultiplesCaracteres() {
 		Assert.assertEquals(6, add("//[***]\n1***2***3"));
 	}
 	
 	@Test
-	public void testSeparadoresMultiples() {
+	public void variosSeparadoresDeMultiplesCaracteresUnCaracterCadaUno() {
 		Assert.assertEquals(6, add("//[*][%]\n1*2%3"));
 	}
 	
 	@Test
-	public void testSeparadoresMultipesMultiplesCaracteres() {
+	public void variosSeparadoresDeMultiplesCaracteresDinstintaLongitud() {
 		Assert.assertEquals(6, add("//[*****][%%%]\n1*****2%%%3"));
 	}
 	
