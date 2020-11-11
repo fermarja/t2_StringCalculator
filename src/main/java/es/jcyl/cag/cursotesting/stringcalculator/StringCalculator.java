@@ -3,8 +3,6 @@ package es.jcyl.cag.cursotesting.stringcalculator;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class StringCalculator {
 	
 	private ExtraeNumeros extractor = new DefaultExtraeNumeros();
@@ -18,10 +16,7 @@ public class StringCalculator {
 		this.extractor = extractor;
 	}
 	
-	public int add(String numbers) {
-		if (StringUtils.isBlank(numbers)) {
-			return 0;
-		}
+	public int add(String numbers) {		
 		int[] numeros = extractor.extraerNumeros(numbers);
 		comprobarPresenciaNegativos(numeros);
 		return sumar(numeros);

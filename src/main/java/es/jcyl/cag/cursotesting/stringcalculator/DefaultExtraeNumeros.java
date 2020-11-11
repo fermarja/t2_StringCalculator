@@ -9,6 +9,9 @@ public class DefaultExtraeNumeros implements ExtraeNumeros {
 	}
 	
 	public int[] extraerNumeros(String numbers) {
+		if (StringUtils.isBlank(numbers)) {
+			return new int[0];
+		}
 		String parteDeNumeros = numbers;
 		 if (numbers.startsWith("//")) {
 			 parteDeNumeros = numbers.substring(numbers.indexOf('\n')+1);
